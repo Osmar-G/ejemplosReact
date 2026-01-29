@@ -12,6 +12,7 @@ function Encabezado() {
             <Logotipo />
             <Menu />
             <Redes />
+           
         </header>
     );
 }
@@ -51,5 +52,6 @@ function Redes() {
         </div>
     );
 }
+
 
 export default Encabezado;
