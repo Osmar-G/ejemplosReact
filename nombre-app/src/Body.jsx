@@ -25,12 +25,5 @@ function Body(){
     );
     
 }
-function Footer(){
-    return(
-        <footer className="footer">
-            <p>Derechos reservados &copy; 2024</p>
-        </footer>
-    )
-}
+
 export default Body;
-export { Footer };

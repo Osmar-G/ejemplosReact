@@ -1,0 +1,16 @@
+.izquierda {
+  text-align: left;
+  justify-content: center;
+}
+
+.derecha {
+  text-align: right;
+    justify-content: center;
+}
+.footer {
+    
+    padding: 20px;
+    background-color: #ccf580f6;
+    margin-top: 150px;
+    border-radius: 15px 15px 0 0;
+}

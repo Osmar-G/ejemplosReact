@@ -1,14 +1,16 @@
 import Encabezado from "./Encabezado";
-import Expresiones from "./expresiones";
-import Body, { Footer } from './body';
+// import Expresiones from "./expresiones";
+import Body from './body';
+import Informacion from "./Informacion";
+import Footer from "./footer";
 function App(){
   return(
    <div>
     <Encabezado />
-    <Expresiones />
-    <Body />
-    <Footer />
     
+    <Body />
+    <Informacion />
+    <Footer />
    </div>
   ) 
 }
