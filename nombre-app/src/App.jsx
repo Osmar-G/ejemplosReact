@@ -1,6 +1,6 @@
 import Encabezado from "./Encabezado";
 // import Expresiones from "./expresiones";
-import Body from './body';
+import Body from './Body';
 import Informacion from "./Informacion";
 import Footer from "./footer";
 function App(){
@@ -9,7 +9,7 @@ function App(){
     <Encabezado />
     
     <Body />
-    <Informacion />
+    <Informacion name='Osmar'/>
     <Footer />
    </div>
   ) 

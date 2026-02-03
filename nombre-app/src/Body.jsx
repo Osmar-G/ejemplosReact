@@ -6,24 +6,21 @@ function Body(){
     return(
         
         <div className="card">
-            <div className="card1">
-                <img src={porsche} alt="Porsche" />
-                <p>Ejemplo de card</p>
-            </div>
-            <div className="card1">
-                <img src={lamborghini} alt="Lamborghini" />
-                <p>Ejrmplo de card</p>
-            </div>
-            <div className="card1">
-                <img src={lancer} alt="Lancer Evolution" />
-                <p>Ejrmplo de card</p>
-            </div>
-
-           
+        <Tarjeta name='Porsche' src={porsche}/>
+        <Tarjeta name='Lamborghini' src={lamborghini}/>
+        <Tarjeta name='Lancer' src={lancer}/>
         </div>
     
     );
     
+}
+function Tarjeta(props){
+  return (
+    <div className="card1">
+      <img src={props.src} alt={props.name} />
+      <p>{props.name}</p>
+    </div>
+  );
 }
 
 export default Body;
