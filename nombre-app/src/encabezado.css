@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #ccf580f6;
+    background-color: #1f2547f6;
     padding: 10px 10px;
     margin-left: 30px;
     width:95%;
@@ -21,7 +21,7 @@
 }
 
 .menu li {
-    background-color: #f77c7c; 
+    background-color: #6b50aa; 
     color: white;
     padding: 8px 16px;
     border-radius: 20px; 
@@ -30,9 +30,9 @@
 }
 
 .menu li:hover {
-    background-color: #f79312;
+    background-color: #1216f7;
     transform: scale(1.2);
-    color: rgb(0, 26, 255);
+    color: rgb(15, 15, 15);
 }
 
 

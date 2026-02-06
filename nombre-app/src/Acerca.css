@@ -1,0 +1,11 @@
+.Acerca{
+    text-align: center;
+    margin-top: 50px;
+
+}
+p{
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333333;
+    margin: 20px;
+}

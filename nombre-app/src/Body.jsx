@@ -1,7 +1,11 @@
 import './body.css';
-import porsche from "./assets/porsche.jpg";
-import lamborghini from "./assets/lamborghini.jpg";
-import lancer from "./assets/lancer.jpg";
+import Inicion from './Inicio.jsx';
+import porsche from "./assets/gt3.png";
+import lamborghini from "./assets/lambo.png";
+import lancer from "./assets/evo.png";
+import Acerca from './AcercaDe.jsx';
+import FormContacto from './Contacto.jsx';
+import Sucursal from './Sucursales.jsx';
 function Body({vista}){
   const vistas={
     "Inicio": <Inicio />,
@@ -19,8 +23,14 @@ function Body({vista}){
     
     );
     
-}
+}  
 function Inicio(){
+  return <Inicion />;
+}
+function AcercaDe(){
+  return <Acerca />;
+}
+function Productos(){
   return (
     
      <div className='card'>
@@ -31,18 +41,13 @@ function Inicio(){
    
     
       );
-      }
-function AcercaDe(){
-  return <h2>Acerca De Nosotros</h2>;
-}
-function Productos(){
-  return <h2>Nuestros Productos</h2>;
+      
 }
 function Contacto(){
-  return <h2>Contacto</h2>;
+  return <FormContacto />;
 }
 function Sucursales(){
-  return <h2>Nuestras Sucursales</h2>;
+  return <Sucursal />;
 }
 
 function Tarjeta(props){

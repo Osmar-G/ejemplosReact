@@ -1,0 +1,32 @@
+.sucursales {
+    background-color: #111;
+    padding: 30px;
+    border-radius: 12px;
+    width: 400px;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+    color: #fff;
+}
+
+.sucursales h2 {
+    text-align: center;
+    color: #ff2a2a;
+    margin-bottom: 20px;
+}
+
+.sucursal {
+    background-color: #1c1c1c;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border-left: 4px solid #ff2a2a;
+}
+
+.sucursal h3 {
+    margin: 0 0 8px 0;
+    color: #ff2a2a;
+}
+
+.sucursal p {
+    margin: 3px 0;
+    font-size: 14px;
+}

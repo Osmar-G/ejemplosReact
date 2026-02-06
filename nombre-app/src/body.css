@@ -5,8 +5,8 @@
     
 }
 .card1{
-    background-color: #f5d4d4; 
-    color: white;
+    background-color: #020202; 
+    color: rgb(235, 7, 7);
     padding: 8px 12px;
     border-radius: 30px; 
     cursor: pointer;
@@ -14,14 +14,23 @@
     
 }
 .card1 img{
-    width: 300px;
-    height: 250px;
+    width: 400px;
+    height: 300px;
     border-radius: 15px;
 }
 .card1:hover {
-    background-color: #f79312;
+    background-color: #202231;
     transform: scale(1.05);
-    color: rgb(0, 26, 255);
+    color: rgb(255, 77, 6);
+}
+.card1 p{
+    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 10px;
+    color: rgb(255, 77, 6);
+}
+.card1:hover p{
+    color: rgb(180, 255, 6);
 }
 .footer {
     text-align: center;
