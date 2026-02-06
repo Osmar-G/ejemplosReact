@@ -1,9 +1,9 @@
 import logo from "./assets/f1.png";
-import facebook from "./assets/facebook.png";
+import facebook from "./assets/fb.png";
 import instagram from "./assets/instagram.png";
 import youtube from "./assets/youtube.png";
 import linkedin from "./assets/linkedln.png";
-import whatsapp from "./assets/whatsapp.png";
+import whatsapp from "./assets/wt.png";
 import PropTypes from 'prop-types';
 import './encabezado.css';
 

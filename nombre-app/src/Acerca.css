@@ -1,11 +1,33 @@
-.Acerca{
-    text-align: center;
-    margin-top: 50px;
-
-}
-p{
-    font-size: 20px;
+.acerca-page {
+    max-width: 800px;
+    margin: 80px auto;
+    padding: 40px;
+    background-color: #1a1a1a; /* Fondo oscuro */
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+    color: #f2f2f2; /* Texto claro */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #333333;
-    margin: 20px;
+    line-height: 1.7;
+}
+
+.acerca-page h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #ff3c00; /* Título en rojo/naranja */
+    letter-spacing: 1px;
+}
+
+.acerca-page p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.acerca-page .firma {
+    text-align: center;
+    font-style: italic;
+    color: #ff6b6b; /* Un color destacado para la firma */
+    margin-top: 30px;
+    font-size: 1.1rem;
 }
