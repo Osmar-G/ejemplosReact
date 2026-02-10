@@ -1,4 +1,4 @@
-import logo from "./assets/f1.png";
+import logo from "./assets/logoPorsche.png";
 import facebook from "./assets/fb.png";
 import instagram from "./assets/instagram.png";
 import youtube from "./assets/youtube.png";
