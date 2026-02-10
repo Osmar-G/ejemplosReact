@@ -17,6 +17,8 @@ import hellcat from "./assets/hellcat.png";
 import gt500 from "./assets/gt500.png";
 import huayra from "./assets/huayra.png";
 import jesko from "./assets/jesko.png";
+import amg from "./assets/amg.png";
+import viper from "./assets/viper.png";
 import Acerca from './AcercaDe.jsx';
 import FormContacto from './Contacto.jsx';
 import Sucursal from './Sucursales.jsx';
@@ -72,10 +74,10 @@ function Productos() {
 
      { name: 'Pagani Huayra BC', src: huayra, potencia: '791 HP', velocidad: '383 km/h' },
   { name: 'Koenigsegg Jesko', src: jesko, potencia: '1600 HP', velocidad: '482 km/h' },
-  { name: 'Aston Martin Valkyrie', src: 'valkyrie', potencia: '1160 HP', velocidad: '402 km/h' },
+  { name: 'Mercedes AMG', src: amg, potencia: '585 HP', velocidad: '315 km/h' },
 
     { name: 'Bugatti Chiron', src: chiron, potencia: '1500 HP', velocidad: '420 km/h' },
-    { name: 'Mazda RX-7 FD', src: 'rx7', potencia: '280 HP', velocidad: '250 km/h' },
+    { name: 'Dodge Viper', src: viper, potencia: '645 HP', velocidad: '300 km/h' },
     { name: 'McLaren P1', src: mclarenp1, potencia: '903 HP', velocidad: '350 km/h' }
   ];
 

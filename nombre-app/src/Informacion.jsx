@@ -1,8 +1,8 @@
 import './informacion.css';
+// import { APIProvider, Map, AdvancedMarker, Pin} from '@vis.gl/react-google-maps';
+function Informacion() {
+  // const position = { lat: 20.260505502276004,  lng: -97.96299835045102};
 
-function Informacion(props) {
-  let user = props
-if(user){
   return (
     <div className="informacion">
       <h2>Información Adicional</h2>
@@ -11,9 +11,7 @@ if(user){
       </p>
     </div>
   );
-}
- return(
-  <div><h3>No hay datos</h3></div>
- )
+
+ 
 }
 export default Informacion;
