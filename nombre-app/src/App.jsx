@@ -3,7 +3,7 @@ import { useState } from "react";
 import Encabezado from "./Encabezado";
 // import Expresiones from "./expresiones";
 import Body from './Body';
-
+import Promos from "./Promos";
 import Footer from "./footer";
 
 function App() {
