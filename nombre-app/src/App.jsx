@@ -3,7 +3,7 @@ import { useState } from "react";
 import Encabezado from "./Encabezado";
 // import Expresiones from "./expresiones";
 import Body from './Body';
-import Promos from "./Promos";
+import MapaGeolocalizacion from './MapaGeolocalizacion';
 import Footer from "./footer";
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
     <div>
       <Encabezado cambiarVista={setVista} />
       <Body vista={vista} />
-      
+      <MapaGeolocalizacion />
       <Footer />
     </div>
   );
