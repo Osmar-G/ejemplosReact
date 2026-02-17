@@ -6,6 +6,7 @@ import linkedin from "./assets/linkedln.png";
 import whatsapp from "./assets/wt.png";
 import PropTypes from 'prop-types';
 import './encabezado.css';
+import Clima from "./Clima";
 
 function Encabezado({cambiarVista}) {
     return (
@@ -50,6 +51,7 @@ function Redes() {
                 <li className="youtube"><img src={youtube} alt="YouTube" /></li>
                 <li className="linkedin"><img src={linkedin} alt="LinkedIn" /></li>
             </ul>
+            <Clima />
         </div>
     );
 }
