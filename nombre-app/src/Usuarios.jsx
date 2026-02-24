@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import api from "./Services/api.js"; 
+import api from "./Services/api.js";
+import "./Usuarios.css";
 
 function Usuarios() {
   const [usuarios, setUsuarios] = useState([]);
@@ -9,7 +10,7 @@ function Usuarios() {
     const obtenerUsuarios = async () => {
       try {
         const response = await api.get("/users");
-        setUsuarios(response.data); 
+        setUsuarios(response.data);
       } catch (error) {
         console.error("Error al obtener los usuarios:", error);
       } finally {
@@ -20,19 +21,33 @@ function Usuarios() {
     obtenerUsuarios();
   }, []);
 
+  const handleEliminar = async (id) => {
+    try {
+      await api.delete(`/users/${id}`);
+      setUsuarios(usuarios.filter((u) => u.id !== id));
+    } catch (error) {
+      console.error("Error al eliminar usuario:", error);
+    }
+  };
+
+  const handleEditar = (usuario) => {
+    console.log("Editar usuario:", usuario);
+    // Aquí puedes redirigir o abrir un modal
+  };
+
   if (loading) return <p>Cargando usuarios...</p>;
 
-  if (usuarios.length === 0) return <p>No hay usuarios para mostrar</p>;
-
   return (
-    <div>
-      <h2>Nuestros Usuarios</h2>
-      <table border="1" cellPadding="8" cellSpacing="0">
+    <div className="tabla-container">
+      <h2>Lista de Usuarios</h2>
+
+      <table className="tabla-usuarios">
         <thead>
           <tr>
             <th>ID</th>
             <th>Usuario</th>
             <th>Email</th>
+            <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
@@ -41,6 +56,20 @@ function Usuarios() {
               <td>{usuario.id}</td>
               <td>{usuario.username}</td>
               <td>{usuario.email}</td>
+              <td>
+                <button
+                  className="btn editar"
+                  onClick={() => handleEditar(usuario)}
+                >
+                  Editar
+                </button>
+                <button
+                  className="btn eliminar"
+                  onClick={() => handleEliminar(usuario.id)}
+                >
+                  Eliminar
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>
