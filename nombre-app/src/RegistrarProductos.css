@@ -1,0 +1,86 @@
+/* Contenedor principal */
+.registro-container {
+    max-width: 500px;
+    margin: 60px auto;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Título */
+.registro-container h2 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 25px;
+    color: #00f2ff;
+    letter-spacing: 1px;
+}
+
+/* Formulario */
+.registro-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Inputs */
+.registro-container input {
+    padding: 12px 15px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.05);
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.registro-container input::placeholder {
+    color: #aaa;
+}
+
+/* Hover y focus en inputs */
+.registro-container input:focus {
+    border-color: #00f2ff;
+    box-shadow: 0 0 10px rgba(0,242,255,0.4);
+    background: rgba(255,255,255,0.1);
+}
+
+/* Botón */
+.registro-container button {
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    background: #00f2ff;
+    color: #000;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.registro-container button:hover {
+    background: #00c8ff;
+    box-shadow: 0 0 15px rgba(0,242,255,0.6);
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+    .registro-container {
+        margin: 30px 15px;
+        padding: 20px;
+    }
+
+    .registro-container input {
+        font-size: 14px;
+    }
+
+    .registro-container button {
+        font-size: 14px;
+    }
+}

@@ -5,8 +5,10 @@ import Acerca from './AcercaDe.jsx';
 import FormContacto from './Contacto.jsx';
 import Sucursal from './Sucursales.jsx';
 import Usuarios from './Usuarios.jsx';
+import Carrito from './Carrito.jsx';
 import api from './Services/api.js';
 import { useState, useEffect } from 'react';
+import RegistrarProductos from './RegistrarProductos.jsx';
 
 function Body({ vista }) {
   const vistas = {
@@ -15,7 +17,8 @@ function Body({ vista }) {
     Productos: <Productos />,
     Contacto: <Contacto />,
     Sucursales: <Sucursales />,
-    Usuarios: <Usuarios />
+    Usuarios: <Usuarios />,
+    Carritos: <Carrito />
   };
 
   return (
@@ -40,8 +43,13 @@ function Contacto() {
 function Sucursales() {
   return <Sucursal />;
 }
+function Carritos() {
+  return <Carrito />;
+}
+
 
 function Productos() {
+  
   const [productos, setProductos] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -63,9 +71,12 @@ function Productos() {
   if (loading) return <p>Cargando productos...</p>;
 
   return (
+    
     <div className="productos-section">
+      <RegistrarProductos />
       <h2 className="productos-title">Nuestros Autos Destacados</h2>
       <div className="productos-grid">
+
         {productos.map((producto) => (
           <Tarjeta
             key={producto.id}

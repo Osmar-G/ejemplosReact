@@ -32,7 +32,7 @@ function Usuarios() {
 
   const handleEditar = (usuario) => {
     console.log("Editar usuario:", usuario);
-    // Aquí puedes redirigir o abrir un modal
+    
   };
 
   if (loading) return <p>Cargando usuarios...</p>;
@@ -46,6 +46,7 @@ function Usuarios() {
           <tr>
             <th>ID</th>
             <th>Usuario</th>
+            <th>Password</th>
             <th>Email</th>
             <th>Acciones</th>
           </tr>

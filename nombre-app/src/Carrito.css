@@ -1,0 +1,127 @@
+
+.carrito-container {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 30px;
+    background: #0f0f15;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #ffffff;
+}
+
+
+.carrito-container h2 {
+    text-align: center;
+    font-size: 30px;
+    letter-spacing: 1.5px;
+    margin-bottom: 15px;
+    color: #00f2ff;
+}
+
+.carrito-id {
+    text-align: center;
+    font-size: 14px;
+    color: #ff00ff;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+
+.carrito-lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+
+.carrito-item {
+    background: #1a1a26;
+    border-radius: 16px;
+    padding: 20px;
+    border: 1px solid #333;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+}
+
+.carrito-item:hover {
+    transform: translateY(-5px);
+    border-color: #00f2ff;
+    box-shadow: 0 0 20px rgba(0, 242, 255, 0.4);
+}
+
+
+.carrito-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    background: #111;
+    padding: 10px;
+}
+
+.carrito-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.carrito-info h4 {
+    font-size: 18px;
+    color: #ffffff;
+    margin: 0;
+}
+
+.carrito-info h4:hover {
+    color: #00ff9d;
+}
+
+.categoria {
+    font-size: 12px;
+    color: #00f2ff;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.descripcion {
+    font-size: 13px;
+    color: #bbb;
+    line-height: 1.4;
+    max-height: 50px;
+    overflow: hidden;
+}
+
+.carrito-precio-cantidad {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+}
+
+.carrito-precio-cantidad .cantidad {
+    font-size: 14px;
+    color: #ccc;
+}
+
+.carrito-precio-cantidad .precio {
+    font-size: 18px;
+    font-weight: bold;
+    color: #00ff9d;
+}
+
+
+@media (max-width: 600px) {
+    .carrito-item img {
+        height: 140px;
+    }
+
+    .carrito-precio-cantidad {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+}
