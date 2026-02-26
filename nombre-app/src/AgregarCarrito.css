@@ -1,19 +1,20 @@
-/* Contenedor principal */
-.registro-container {
+* Contenedor principal */
+.carrito-form {
     max-width: 500px;
     margin: 60px auto;
     padding: 30px;
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(15px);
     border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 20px rgba(7, 116, 241, 0.4);
+    
+    box-shadow: 0 0 20px rgba(241, 7, 167, 0.4);
     color: #ffffff;
+
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* Título */
-.registro-container h2 {
+.carrito-form h2 {
     text-align: center;
     font-size: 28px;
     margin-bottom: 25px;
@@ -22,14 +23,14 @@
 }
 
 /* Formulario */
-.registro-container form {
+.carrito-form form {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
 /* Inputs */
-.registro-container input {
+.carrito-form input {
     padding: 12px 15px;
     border-radius: 12px;
     border: 1px solid rgba(255,255,255,0.2);
@@ -40,19 +41,19 @@
     transition: all 0.3s ease;
 }
 
-.registro-container input::placeholder {
+.carrito-form input::placeholder {
     color: #aaa;
 }
 
 /* Hover y focus en inputs */
-.registro-container input:focus {
+.carrito-form input:focus {
     border-color: #00f2ff;
     box-shadow: 0 0 10px rgba(0,242,255,0.4);
     background: rgba(255,255,255,0.1);
 }
 
 /* Botón */
-.registro-container button {
+.carrito-form button {
     padding: 12px;
     border-radius: 12px;
     border: none;
@@ -64,23 +65,23 @@
     transition: all 0.3s ease;
 }
 
-.registro-container button:hover {
+.carrito-form button:hover {
     background: #00c8ff;
     box-shadow: 0 0 15px rgba(0,242,255,0.6);
 }
 
 /* Responsivo */
 @media (max-width: 600px) {
-    .registro-container {
+    .carrito-form {
         margin: 30px 15px;
         padding: 20px;
     }
 
-    .registro-container input {
+    .carrito-form input {
         font-size: 14px;
     }
 
-    .registro-container button {
+    .carrito-form button {
         font-size: 14px;
     }
 }

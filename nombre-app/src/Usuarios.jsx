@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import api from "./Services/api.js";
 import "./Usuarios.css";
+import FormContacto from "./Contacto.jsx";
 
 function Usuarios() {
   const [usuarios, setUsuarios] = useState([]);
@@ -39,6 +40,7 @@ function Usuarios() {
 
   return (
     <div className="tabla-container">
+      <FormContacto />
       <h2>Lista de Usuarios</h2>
 
       <table className="tabla-usuarios">
@@ -56,6 +58,7 @@ function Usuarios() {
             <tr key={usuario.id}>
               <td>{usuario.id}</td>
               <td>{usuario.username}</td>
+              <td>{usuario.password}</td>
               <td>{usuario.email}</td>
               <td>
                 <button

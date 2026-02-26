@@ -1,53 +1,73 @@
 import { useState, useEffect } from "react";
 import api from "./Services/api.js";
+import FormCarrito from "./AgregarCarrito.jsx";
 import "./Carrito.css";
 
 function Carrito() {
-  const [carrito, setCarrito] = useState([]);
+  const [carritos, setCarritos] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const obtenerCarrito = async () => {
+    const obtenerCarritos = async () => {
       try {
-        
-        const cartResponse = await api.get("/carts/1");
-
-        const productosDelCarrito = cartResponse.data.products;
+        const cartResponse = await api.get("/carts");
+        const cartsData = cartResponse.data;
 
         
-        const productosCompletos = await Promise.all(
-          productosDelCarrito.map(async (item) => {
-            const productResponse = await api.get(`/products/${item.productId}`);
+        const carritosConProductos = await Promise.all(
+          cartsData.map(async (carrito) => {
+            const productosCompletos = await Promise.all(
+              carrito.products.map(async (item) => {
+                const productResponse = await api.get(
+                  `/products/${item.productId}`
+                );
+
+                return {
+                  ...productResponse.data,
+                  quantity: item.quantity,
+                };
+              })
+            );
+
             return {
-              ...productResponse.data,
-              quantity: item.quantity,
+              ...carrito,
+              products: productosCompletos,
             };
           })
         );
 
-        setCarrito(productosCompletos);
+        setCarritos(carritosConProductos);
       } catch (error) {
-        console.error("Error al obtener carrito:", error);
+        console.error("Error al obtener carritos:", error);
       } finally {
         setLoading(false);
       }
     };
 
-    obtenerCarrito();
+    obtenerCarritos();
   }, []);
 
-  if (loading) return <p>Cargando carrito...</p>;
+  if (loading) return <p>Cargando carritos...</p>;
 
   return (
     <div className="carrito-container">
-      <h2>🛒 Mi Carrito</h2>
+      <FormCarrito />
+      <h2>🛒 Todos los Carritos</h2>
 
-      {carrito.map((producto) => (
-        <div key={producto.id} className="carrito-item">
-          <img src={producto.image} alt={producto.title} />
-          <h4>{producto.title}</h4>
-          <p>Cantidad: {producto.quantity}</p>
-          <p>Precio: ${producto.price}</p>
+      {carritos.map((carrito) => (
+        <div key={carrito.id} className="carrito">
+          <h3>Carrito ID: {carrito.id}</h3>
+
+          {carrito.products.map((producto) => (
+            <div key={producto.id} className="carrito-item">
+              <img src={producto.image} alt={producto.title} />
+              <div>
+                <h4>{producto.title}</h4>
+                <p>Cantidad: {producto.quantity}</p>
+                <p>Precio: ${producto.price}</p>
+              </div>
+            </div>
+          ))}
         </div>
       ))}
     </div>

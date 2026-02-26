@@ -19,7 +19,7 @@ function FormContacto() {
 }
   return (
     <div className="contacto-form">
-      <h2>Contacto</h2>
+      <h2>Registro de Usuario</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="nombre">Nombre</label>
         <input

@@ -4,6 +4,7 @@
   margin: 40px auto;
   font-family: Arial, Helvetica, sans-serif;
   color: #ffffff; 
+  
 }
 
 .tabla-container h2 {
@@ -18,6 +19,7 @@
   background-color: #1e1e1e; 
   border-radius: 8px;
   overflow: hidden;
+  box-shadow: 0 10px 20px rgba(241, 7, 167, 0.4);
 }
 
 .tabla-usuarios th {
@@ -50,11 +52,11 @@
 }
 
 .editar {
-  background-color: #3498db;
+  background-color: #68addb;
 }
 
 .editar:hover {
-  background-color: #2980b9;
+  background-color: #058be3;
 }
 
 .eliminar {
@@ -62,5 +64,5 @@
 }
 
 .eliminar:hover {
-  background-color: #c0392b;
+  background-color: #ff0000;
 }
