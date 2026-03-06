@@ -1,20 +1,49 @@
-import React,{ useState} from "react";
+import React,{ useEffect, useState} from "react";
 import api from "./Services/api.js";
 import './Contacto.css';
+import Usuarios from "./Usuarios.jsx";
 
-function FormContacto() {
+function FormContacto({ usuarioEditando, limpiarSeleccion, onActualizacionExitosa}) {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  useEffect(() => {
+    if (usuarioEditando) {
+      setUsername(usuarioEditando.username);
+      setEmail(usuarioEditando.email);
+      setPassword(usuarioEditando.password);
+    } else {
+      setUsername("");
+      setEmail("");
+      setPassword("");
+    }
+  }, [usuarioEditando]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const nuevoUsuario = {username, email, password};
     try {
-        const respuesta = await api.post("/users", nuevoUsuario);
+      if(usuarioEditando){
+      const respuesta = await api.put(`/users/${usuarioEditando.id}`, nuevoUsuario);
+      console.log("Usuario actualizado:", respuesta.data);
+      alert('Usuario actualizado exitosamente');
+      setUsername("");
+      setEmail("");
+      setPassword("");
+      }else{
+      const respuesta = await api.post("/users", nuevoUsuario);
         console.log("Usuario registrado:", respuesta.data);
         alert('Usuario registrado exitosamente');
+      }
+      setUsername("");
+      setEmail("");
+      setPassword("");
+      if(onActualizacionExitosa) onActualizacionExitosa();
+        
     } catch (error) {
         console.error("Error al registrar usuario:", error);
+        alert('Error al registrar usuario');
     }
 }
   return (

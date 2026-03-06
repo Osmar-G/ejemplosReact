@@ -1,90 +1,94 @@
 import './body.css';
 import PropTypes from 'prop-types';
+import { useState, useEffect } from 'react';
+
 import Inicion from './Inicio.jsx';
 import Acerca from './AcercaDe.jsx';
 import FormContacto from './Contacto.jsx';
 import Sucursal from './Sucursales.jsx';
 import Usuarios from './Usuarios.jsx';
 import Carrito from './Carrito.jsx';
-import api from './Services/api.js';
-import { useState, useEffect } from 'react';
 import RegistrarProductos from './RegistrarProductos.jsx';
+import Login from './Login.jsx'
+import api from './Services/api.js';
 
 function Body({ vista }) {
+
   const vistas = {
-    Inicio: <Inicio />,
-    AcercaDe: <AcercaDe />,
+    Inicio: <Inicion />,
+    AcercaDe: <Acerca />,
     Productos: <Productos />,
-    Contacto: <Contacto />,
-    Sucursales: <Sucursales />,
+    Contacto: <FormContacto />,
+    Sucursales: <Sucursal />,
     Usuarios: <Usuarios />,
-    Carritos: <Carrito />
+    Carritos: <Carrito />,
+    Login: <Login />
   };
 
   return (
     <div>
-      {vistas[vista] || <Inicio />}
+      {vistas[vista] || <Inicion />}
     </div>
   );
 }
 
-function Inicio() {
-  return <Inicion />;
-}
-
-function AcercaDe() {
-  return <Acerca />;
-}
-
-function Contacto() {
-  return <FormContacto />;
-}
-
-function Sucursales() {
-  return <Sucursal />;
-}
-function Carritos() {
-  return <Carrito />;
-}
-
-
 function Productos() {
-  
+
   const [productos, setProductos] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [productoSeleccionado, setProductoSeleccionado] = useState(null);
+
+  const obtenerProductos = async () => {
+    try {
+      const response = await api.get('/products');
+      setProductos(response.data);
+    } catch (error) {
+      console.error("Error al obtener productos:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-    const obtenerProductos = async () => {
-      try {
-        const response = await api.get('/products');
-        setProductos(response.data);
-      } catch (error) {
-        console.error("Error al obtener productos:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
     obtenerProductos();
   }, []);
+
+  const handleEliminar = async (id) => {
+    try {
+      await api.delete(`/products/${id}`);
+      setProductos(productos.filter((p) => p.id !== id));
+      alert("Producto eliminado exitosamente");
+    } catch (error) {
+      console.error("Error al eliminar producto:", error);
+    }
+  };
+
+  const handleEditar = (producto) => {
+    setProductoSeleccionado(producto);
+  };
 
   if (loading) return <p>Cargando productos...</p>;
 
   return (
-    
     <div className="productos-section">
-      <RegistrarProductos />
-      <h2 className="productos-title">Nuestros Autos Destacados</h2>
-      <div className="productos-grid">
 
+      <RegistrarProductos
+        productoEditando={productoSeleccionado}
+        limpiarSeleccion={() => setProductoSeleccionado(null)}
+        onActualizacionExitosa={obtenerProductos}
+      />
+
+      <h2 className="productos-title">
+        Nuestros Autos Destacados
+      </h2>
+
+      <div className="productos-grid">
         {productos.map((producto) => (
           <Tarjeta
             key={producto.id}
-            titulo={producto.title}
-            src={producto.image}
-            precio={producto.price}
-            descripcion={producto.description}
-            categoria={producto.category}
+            producto={producto}
+            onEliminar={handleEliminar}
+            onEditar={handleEditar}
           />
         ))}
       </div>
@@ -92,24 +96,47 @@ function Productos() {
   );
 }
 
-function Tarjeta({ titulo, src, precio, descripcion, categoria }) {
+function Tarjeta({ producto, onEliminar, onEditar }) {
+
   return (
     <div className="galeria-card">
-      <img src={src} alt={titulo} />
-      <h3>{titulo}</h3>
-      <p><strong>Precio:</strong> ${precio}</p>
-      <p><strong>Descripción:</strong> {descripcion}</p>
-      <p><strong>Categoría:</strong> {categoria}</p>
+
+      <img src={producto.image} alt={producto.title} />
+
+      <h3>{producto.title}</h3>
+
+      <p><strong>Precio:</strong> ${producto.price}</p>
+
+      <p><strong>Descripción:</strong> {producto.description}</p>
+
+      <p><strong>Categoría:</strong> {producto.category}</p>
+
+      <div className="botones-card">
+
+        <button
+          className="btn-editar"
+          onClick={() => onEditar(producto)}
+        >
+          Editar
+        </button>
+
+        <button
+          className="btn-eliminar"
+          onClick={() => onEliminar(producto.id)}
+        >
+          Eliminar
+        </button>
+
+      </div>
+
     </div>
   );
 }
 
 Tarjeta.propTypes = {
-  titulo: PropTypes.string.isRequired,
-  src: PropTypes.string.isRequired,
-  precio: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-  descripcion: PropTypes.string.isRequired,
-  categoria: PropTypes.string.isRequired
+  producto: PropTypes.object.isRequired,
+  onEliminar: PropTypes.func.isRequired,
+  onEditar: PropTypes.func.isRequired
 };
 
 Body.propTypes = {

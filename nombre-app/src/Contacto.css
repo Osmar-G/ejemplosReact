@@ -1,70 +1,75 @@
 .contacto-form {
-    background-color: #111;
-    padding: 50px;
-    border-radius: 12px;
-    width: 350px;
-    max-width: 90%;
-    margin: 100px auto; 
-    box-shadow: 0 0 20px rgba(241, 7, 167, 0.4);
-    color: #fff;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #111;
+  padding: 40px;
+  border-radius: 12px;
+  width: 350px;
+  max-width: 90%;
+  margin: 50px auto;
+  box-shadow: 0 0 20px rgba(241, 7, 167, 0.4);
+  color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .contacto-form h2 {
-    text-align: center;
-    margin-bottom: 25px;
-    color: #d215b0bc; 
-    letter-spacing: 1px;
+  text-align: center;
+  margin-bottom: 25px;
+  color: #ff4fc3;
+  letter-spacing: 1px;
+}
+
+.contacto-form form {
+  display: flex;
+  flex-direction: column;
 }
 
 .contacto-form label {
-    display: block;
-    font-size: 14px;
-    margin-bottom: 5px;
-    color: #ff6b6b;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #ff6b6b;
 }
 
-.contacto-form input,
-.contacto-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: none;
-    border-radius: 6px;
-    background-color: #222;
-    color: #fff;
-    outline: none;
-    font-size: 14px;
+.contacto-form input {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 6px;
+  background: #222;
+  color: #fff;
+  font-size: 14px;
+  outline: none;
+  transition: 0.3s;
 }
 
-.contacto-form input::placeholder,
-.contacto-form textarea::placeholder {
-    color: #aaa;
+.contacto-form input::placeholder {
+  color: #aaa;
 }
 
-.contacto-form input:focus,
-.contacto-form textarea:focus {
-    box-shadow: 0 0 5px #f208b4c6;
-}
-
-.contacto-form textarea {
-    resize: none;
+.contacto-form input:focus {
+  box-shadow: 0 0 6px #f208b4;
 }
 
 .contacto-form button {
-    width: 100%;
-    padding: 12px;
-    background-color: #7f6af9;
-    border: none;
-    border-radius: 6px;
-    color: #fff;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  background: #7f6af9;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 .contacto-form button:hover {
-    background-color: #6003ffa7;
-    transform: scale(1.05);
+  background: #6003ff;
+  transform: scale(1.05);
+}
+
+.cancelar-btn {
+  margin-top: 10px;
+  background: #ff4b4b;
+}
+
+.cancelar-btn:hover {
+  background: #c40000;
 }

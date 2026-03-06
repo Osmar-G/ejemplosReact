@@ -94,7 +94,6 @@
     text-align: center;
     margin-bottom: 12px;
     background: linear-gradient(135deg, #ffffff, #9ff3ff);
-    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -138,4 +137,89 @@
     .galeria-card img {
         height: 190px;
     }
+}
+.btn-eliminar {
+    margin-top: 16px;
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 80, 80, 0.4);
+    background: linear-gradient(
+        135deg,
+        rgba(255,70,70,0.25),
+        rgba(150,0,0,0.35)
+    );
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: 
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.btn-eliminar:hover {
+    transform: translateY(-3px);
+    background: linear-gradient(
+        135deg,
+        rgba(255,80,80,0.5),
+        rgba(200,0,0,0.6)
+    );
+    border-color: rgba(255,120,120,0.9);
+    box-shadow: 
+        0 10px 25px rgba(255,0,0,0.5),
+        0 0 15px rgba(255,0,0,0.7);
+}
+
+.btn-eliminar:active {
+    transform: scale(0.95);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.6);
+}
+.galeria-card::before,
+.galeria-card::after {
+    pointer-events: none;
+}
+
+.btn-eliminar {
+    position: relative;
+    z-index: 10;
+}
+.botones-card{
+    display:flex;
+    gap:10px;
+    margin-top:15px;
+}
+
+.btn-editar{
+    flex:1;
+    padding:10px;
+    border:none;
+    border-radius:10px;
+    background:#13fe02;
+    color:black;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.btn-editar:hover{
+    background:#02fe6be3;
+}
+
+.btn-eliminar{
+    flex:1;
+    padding:10px;
+    border:none;
+    border-radius:10px;
+    background:#ff4d4d;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.btn-eliminar:hover{
+    background:#ff0000;
 }

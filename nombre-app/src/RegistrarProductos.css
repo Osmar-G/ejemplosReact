@@ -1,86 +1,143 @@
 /* Contenedor principal */
-.registro-container {
-    max-width: 500px;
-    margin: 60px auto;
-    padding: 30px;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(15px);
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 20px rgba(7, 116, 241, 0.4);
+.form-productos {
+    max-width: 520px;
+    margin: 70px auto;
+    padding: 32px;
+    background: linear-gradient(
+        145deg,
+        rgba(25,25,45,0.6),
+        rgba(10,10,20,0.85)
+    );
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-radius: 24px;
+    border: 1px solid rgba(255,255,255,0.15);
+    box-shadow:
+        0 25px 60px rgba(0,0,0,0.85),
+        0 0 25px rgba(0,229,255,0.3);
     color: #ffffff;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* Título */
-.registro-container h2 {
+
+.form-productos h2 {
     text-align: center;
     font-size: 28px;
-    margin-bottom: 25px;
-    color: #00f2ff;
+    margin-bottom: 26px;
+    background: linear-gradient(135deg,#ffffff,#9ff3ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     letter-spacing: 1px;
 }
 
 /* Formulario */
-.registro-container form {
+
+.form-productos form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 16px;
 }
 
 /* Inputs */
-.registro-container input {
+
+.form-productos input,
+.form-productos textarea {
     padding: 12px 15px;
-    border-radius: 12px;
+    border-radius: 14px;
     border: 1px solid rgba(255,255,255,0.2);
     background: rgba(255,255,255,0.05);
     color: #fff;
-    font-size: 16px;
+    font-size: 15px;
     outline: none;
-    transition: all 0.3s ease;
+    transition: 
+        border 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
 }
 
-.registro-container input::placeholder {
-    color: #aaa;
+.form-productos textarea{
+    resize: none;
+    min-height: 80px;
 }
 
-/* Hover y focus en inputs */
-.registro-container input:focus {
-    border-color: #00f2ff;
-    box-shadow: 0 0 10px rgba(0,242,255,0.4);
-    background: rgba(255,255,255,0.1);
+/* Placeholder */
+
+.form-productos input::placeholder,
+.form-productos textarea::placeholder {
+    color: #9aa0a6;
+}
+
+/* Focus */
+
+.form-productos input:focus,
+.form-productos textarea:focus {
+    border-color: #00e5ff;
+    box-shadow: 0 0 12px rgba(0,229,255,0.5);
+    background: rgba(255,255,255,0.08);
 }
 
 /* Botón */
-.registro-container button {
+
+.form-productos button {
+    margin-top: 8px;
     padding: 12px;
-    border-radius: 12px;
+    border-radius: 14px;
     border: none;
-    background: #00f2ff;
+    background: linear-gradient(
+        135deg,
+        #00e5ff,
+        #00bcd4
+    );
     color: #000;
-    font-weight: bold;
+    font-weight: 600;
     font-size: 16px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
 }
 
-.registro-container button:hover {
-    background: #00c8ff;
-    box-shadow: 0 0 15px rgba(0,242,255,0.6);
+/* Hover botón */
+
+.form-productos button:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(
+        135deg,
+        #00f2ff,
+        #00c8ff
+    );
+    box-shadow:
+        0 10px 25px rgba(0,229,255,0.6),
+        0 0 15px rgba(0,229,255,0.5);
 }
 
-/* Responsivo */
+/* Click */
+
+.form-productos button:active {
+    transform: scale(0.96);
+}
+
+/* Responsive */
+
 @media (max-width: 600px) {
-    .registro-container {
-        margin: 30px 15px;
-        padding: 20px;
+
+    .form-productos {
+        margin: 40px 16px;
+        padding: 24px;
     }
 
-    .registro-container input {
+    .form-productos h2 {
+        font-size: 24px;
+    }
+
+    .form-productos input,
+    .form-productos textarea {
         font-size: 14px;
     }
 
-    .registro-container button {
+    .form-productos button {
         font-size: 14px;
     }
 }

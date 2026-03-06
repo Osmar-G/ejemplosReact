@@ -1,87 +1,106 @@
-* Contenedor principal */
+/* CONTENEDOR GENERAL */
 .carrito-form {
-    max-width: 500px;
-    margin: 60px auto;
-    padding: 30px;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(15px);
-    border-radius: 20px;
-    
-    box-shadow: 0 0 20px rgba(241, 7, 167, 0.4);
-    color: #ffffff;
-
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 450px;
+  margin: 40px auto;
+  padding: 25px;
+  border-radius: 12px;
+  background: #f8f9fc;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Título */
+/* TITULOS */
 .carrito-form h2 {
-    text-align: center;
-    font-size: 28px;
-    margin-bottom: 25px;
-    color: #00f2ff;
-    letter-spacing: 1px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
 }
 
-/* Formulario */
+/* FORM */
 .carrito-form form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-/* Inputs */
+/* LABEL */
+.carrito-form label {
+  font-weight: bold;
+  color: #555;
+}
+
+/* INPUTS */
 .carrito-form input {
-    padding: 12px 15px;
-    border-radius: 12px;
-    border: 1px solid rgba(255,255,255,0.2);
-    background: rgba(255,255,255,0.05);
-    color: #fff;
-    font-size: 16px;
-    outline: none;
-    transition: all 0.3s ease;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: 0.3s;
 }
 
-.carrito-form input::placeholder {
-    color: #aaa;
-}
-
-/* Hover y focus en inputs */
 .carrito-form input:focus {
-    border-color: #00f2ff;
-    box-shadow: 0 0 10px rgba(0,242,255,0.4);
-    background: rgba(255,255,255,0.1);
+  border-color: #4a7cff;
+  box-shadow: 0 0 5px rgba(74,124,255,0.5);
 }
 
-/* Botón */
+/* BOTON PRINCIPAL */
 .carrito-form button {
-    padding: 12px;
-    border-radius: 12px;
-    border: none;
-    background: #00f2ff;
-    color: #000;
-    font-weight: bold;
-    font-size: 16px;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  margin-top: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #4a7cff;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 .carrito-form button:hover {
-    background: #00c8ff;
-    box-shadow: 0 0 15px rgba(0,242,255,0.6);
+  background: #355edc;
 }
 
-/* Responsivo */
-@media (max-width: 600px) {
-    .carrito-form {
-        margin: 30px 15px;
-        padding: 20px;
-    }
+/* LISTA DE CARRITOS */
+.carrito-item {
+  margin-top: 15px;
+  padding: 15px;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
 
-    .carrito-form input {
-        font-size: 14px;
-    }
+/* TEXTO */
+.carrito-item p {
+  margin: 5px 0;
+  color: #444;
+}
 
-    .carrito-form button {
-        font-size: 14px;
-    }
+/* BOTONES EDITAR Y ELIMINAR */
+.carrito-item button {
+  margin-right: 8px;
+  margin-top: 8px;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* EDITAR */
+.carrito-item button:first-of-type {
+  background: #ffc107;
+  color: black;
+}
+
+.carrito-item button:first-of-type:hover {
+  background: #e0a800;
+}
+
+/* ELIMINAR */
+.carrito-item button:last-of-type {
+  background: #dc3545;
+  color: white;
+}
+
+.carrito-item button:last-of-type:hover {
+  background: #b02a37;
 }

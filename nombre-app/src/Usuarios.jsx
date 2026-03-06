@@ -6,19 +6,20 @@ import FormContacto from "./Contacto.jsx";
 function Usuarios() {
   const [usuarios, setUsuarios] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [usuarioSeleccionado, setUsuarioSeleccionado] = useState(null);
+
+  const obtenerUsuarios = async () => {
+    try {
+      const response = await api.get("/users");
+      setUsuarios(response.data);
+    } catch (error) {
+      console.error("Error al obtener los usuarios:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-    const obtenerUsuarios = async () => {
-      try {
-        const response = await api.get("/users");
-        setUsuarios(response.data);
-      } catch (error) {
-        console.error("Error al obtener los usuarios:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
     obtenerUsuarios();
   }, []);
 
@@ -26,21 +27,26 @@ function Usuarios() {
     try {
       await api.delete(`/users/${id}`);
       setUsuarios(usuarios.filter((u) => u.id !== id));
+      alert("Usuario eliminado exitosamente");
     } catch (error) {
       console.error("Error al eliminar usuario:", error);
     }
   };
 
   const handleEditar = (usuario) => {
-    console.log("Editar usuario:", usuario);
-    
+    setUsuarioSeleccionado(usuario);
   };
 
   if (loading) return <p>Cargando usuarios...</p>;
 
   return (
     <div className="tabla-container">
-      <FormContacto />
+      <FormContacto 
+        usuarioEditando={usuarioSeleccionado}
+        limpiarSeleccion={() => setUsuarioSeleccionado(null)}
+        onActualizacionExitosa={obtenerUsuarios}
+      />
+
       <h2>Lista de Usuarios</h2>
 
       <table className="tabla-usuarios">
@@ -48,7 +54,6 @@ function Usuarios() {
           <tr>
             <th>ID</th>
             <th>Usuario</th>
-            <th>Password</th>
             <th>Email</th>
             <th>Acciones</th>
           </tr>
@@ -58,7 +63,6 @@ function Usuarios() {
             <tr key={usuario.id}>
               <td>{usuario.id}</td>
               <td>{usuario.username}</td>
-              <td>{usuario.password}</td>
               <td>{usuario.email}</td>
               <td>
                 <button

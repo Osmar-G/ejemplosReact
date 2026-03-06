@@ -7,7 +7,7 @@ import whatsapp from "./assets/wt.png";
 import PropTypes from 'prop-types';
 import './encabezado.css';
 import Clima from "./Clima";
-
+import { AuthProvider, useAuth } from "./AuthContext";
 function Encabezado({cambiarVista}) {
     return (
         <header className="encabezado">
@@ -28,6 +28,7 @@ function Logotipo() {
 }
 
 function Menu({cambiarVista}) {
+    const {isLoggedIn} = useAuth;
     return (
         <nav className="menu">
             <ul>
@@ -36,8 +37,17 @@ function Menu({cambiarVista}) {
                 <li onClick={() => cambiarVista("Productos")}>Productos</li>
                 <li onClick={() => cambiarVista("Contacto")}>Contacto</li>
                 <li onClick={() => cambiarVista("Sucursales")}>Sucursales</li>
-                <li onClick={() => cambiarVista("Usuarios")}>Usuarios</li>
-                <li onClick={() => cambiarVista("Carritos")}>Carrito</li>
+                
+                {isLoggedIn ? (
+                 <>
+                 <li onClick={() => cambiarVista("Usuarios")}>Usuarios</li>
+                  <li onClick={() => cambiarVista("Carritos")}>Carrito</li>
+                 
+                 </>
+
+                ) : (
+                <li onClick={() => cambiarVista("Login")}>Login</li>
+                ) }
             </ul>
         </nav>
     );
