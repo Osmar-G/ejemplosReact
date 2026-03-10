@@ -9,10 +9,11 @@ import Sucursal from './Sucursales.jsx';
 import Usuarios from './Usuarios.jsx';
 import Carrito from './Carrito.jsx';
 import RegistrarProductos from './RegistrarProductos.jsx';
-import Login from './Login.jsx'
+import Login from './Login.jsx';
 import api from './Services/api.js';
+import Categorias from './Categorias.jsx';
 
-function Body({ vista }) {
+function Body({ vista, chVista }) {
 
   const vistas = {
     Inicio: <Inicion />,
@@ -22,7 +23,8 @@ function Body({ vista }) {
     Sucursales: <Sucursal />,
     Usuarios: <Usuarios />,
     Carritos: <Carrito />,
-    Login: <Login />
+    Categorias: <Categorias />,
+    Login: <Login chVista={chVista} />
   };
 
   return (
@@ -40,12 +42,18 @@ function Productos() {
 
   const obtenerProductos = async () => {
     try {
+
       const response = await api.get('/products');
       setProductos(response.data);
+
     } catch (error) {
+
       console.error("Error al obtener productos:", error);
+
     } finally {
+
       setLoading(false);
+
     }
   };
 
@@ -54,13 +62,21 @@ function Productos() {
   }, []);
 
   const handleEliminar = async (id) => {
+
     try {
+
       await api.delete(`/products/${id}`);
+
       setProductos(productos.filter((p) => p.id !== id));
+
       alert("Producto eliminado exitosamente");
+
     } catch (error) {
+
       console.error("Error al eliminar producto:", error);
+
     }
+
   };
 
   const handleEditar = (producto) => {
@@ -70,6 +86,7 @@ function Productos() {
   if (loading) return <p>Cargando productos...</p>;
 
   return (
+
     <div className="productos-section">
 
       <RegistrarProductos
@@ -83,22 +100,30 @@ function Productos() {
       </h2>
 
       <div className="productos-grid">
+
         {productos.map((producto) => (
+
           <Tarjeta
             key={producto.id}
             producto={producto}
             onEliminar={handleEliminar}
             onEditar={handleEditar}
           />
+
         ))}
+
       </div>
+
     </div>
+
   );
+
 }
 
 function Tarjeta({ producto, onEliminar, onEditar }) {
 
   return (
+
     <div className="galeria-card">
 
       <img src={producto.image} alt={producto.title} />
@@ -130,7 +155,9 @@ function Tarjeta({ producto, onEliminar, onEditar }) {
       </div>
 
     </div>
+
   );
+
 }
 
 Tarjeta.propTypes = {
@@ -140,7 +167,8 @@ Tarjeta.propTypes = {
 };
 
 Body.propTypes = {
-  vista: PropTypes.string.isRequired
+  vista: PropTypes.string.isRequired,
+  chVista: PropTypes.func.isRequired
 };
 
 export default Body;

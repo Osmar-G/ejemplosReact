@@ -1,0 +1,93 @@
+/* CONTENEDOR GENERAL */
+.contenedor-menu {
+    padding: 40px;
+    background: #121212;
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #f1f1f1;
+}
+
+/* HEADER */
+.menu-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.menu-header h1 {
+    font-size: 2.5rem;
+    color: #ffffff;
+}
+
+.menu-header p {
+    color: #bbbbbb;
+    margin-top: 10px;
+}
+
+/* GRID DE CARDS */
+.grid-comida {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+/* CARD */
+.card-comida {
+    background: #1e1e1e;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+    transition: all 0.3s ease;
+}
+
+.card-comida:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.8);
+}
+
+/* IMAGEN */
+.comida-imagen img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+/* INFO */
+.comida-info {
+    padding: 18px;
+}
+
+.comida-info h3 {
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+/* DESCRIPCIÓN */
+.comida-desc {
+    font-size: 14px;
+    color: #bbbbbb;
+    margin-bottom: 15px;
+}
+
+/* BOTÓN */
+.btn-ver-mas {
+    background: #ff6b35;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.btn-ver-mas:hover {
+    background: #ff814f;
+}
+
+/* LOADING */
+.cargando {
+    text-align: center;
+    font-size: 18px;
+    padding: 40px;
+    color: #ffffff;
+}

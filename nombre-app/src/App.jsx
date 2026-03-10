@@ -14,7 +14,7 @@ function App() {
     <div>
       <AuthProvider>
       <Encabezado cambiarVista={setVista} />
-      <Body vista={vista} />
+      <Body vista={vista} chVista={setVista}/>
       <MapaGeolocalizacion />
      </AuthProvider>
       <Footer />

@@ -3,7 +3,7 @@ import { useState } from "react";
 import api from "./Services/api";
 import { useAuth } from "./AuthContext";
 
-const Login = ({}) => {
+const Login = ({chVista}) => {
 
   const { login } = useAuth();
 
@@ -24,13 +24,14 @@ const Login = ({}) => {
 
       if (response.data.token) {
 
-        console.log(response.data.token);
+        login(response.data.token);
         alert("Autenticación Autorizada");
-        
+        chVista("Inicio");
 
       } else {
 
         alert("Autenticación no Autorizada");
+
 
       }
 
